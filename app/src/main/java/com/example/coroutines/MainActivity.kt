@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch {
             //delay function only pause the current coroutine ,it will not block the
             //whole thread.
-            //if main thread finishes then coroutine is also cancelled.
+            //if main thread finishes then coroutine is also cancelled
             delay(3000L)
             Log.d(TAG,"Coroutines says hello from thread${Thread.currentThread().name}")
         }
