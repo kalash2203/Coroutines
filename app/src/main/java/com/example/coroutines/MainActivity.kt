@@ -6,14 +6,15 @@ import android.util.Log
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
-//async and await
+//async:-used for executing the task asynchronously
+//await:-used for blocking the current coroutine
 class MainActivity : AppCompatActivity() {
     val TAG ="MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+//launching a global coroutine
         GlobalScope.launch(Dispatchers.IO) {
             val time = measureTimeMillis {
            val answer1 =async { networkCall1()}
