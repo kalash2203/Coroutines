@@ -18,12 +18,11 @@ class MainActivity : AppCompatActivity() {
 GlobalScope.launch(Dispatchers.IO) {
     Log.d(TAG, "Starting coroutines in thread${Thread.currentThread().name}")
     val answer = doNetworkCall()
+    //changing the dispatcher from IO to Main (i.e. context)
     withContext(Dispatchers.Main) {
         Log.d(TAG, "Setting text in thread ${Thread.currentThread().name}")
         tvDummy.text = answer
-    }
-    }
-    }
+    } } }
     suspend fun doNetworkCall(): String {
         delay(3000L)
         return "This is the answer"
